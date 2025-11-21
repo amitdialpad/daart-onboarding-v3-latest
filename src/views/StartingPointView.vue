@@ -6,8 +6,7 @@
         <div class="prompt-section">
           <h2 class="d-headline--sm d-fc-primary prompt-title">Build an AI Agent.</h2>
           <p class="d-body--md d-fc-secondary prompt-description">
-            An AI Agent is your always-on digital teammate that can handle multiple connected tasks
-            on your behalf. Start by describing what your AI Agent's job goal is.
+            Describe what you want your AI Agent to do.
           </p>
 
           <div class="prompt-card">
@@ -19,7 +18,7 @@
             ></textarea>
             <div class="prompt-actions">
               <button class="improve-btn">
-                Improve
+                ✨ Improve
               </button>
               <button
                 class="d-btn d-btn--primary d-btn--lg"
@@ -35,15 +34,12 @@
         <!-- Suggested Goals -->
         <div class="suggested-goals d-mt48">
           <h2 class="d-headline--sm d-fc-primary">
-            Suggested goals to get started
+            Or start with a template
           </h2>
-          <p class="d-body--sm d-fc-secondary">
-            You can start with one and add more skills later on.
-          </p>
 
           <div class="goals-grid">
             <div
-              v-for="goal in suggestedGoals"
+              v-for="goal in suggestedGoals.slice(0, 4)"
               :key="goal.id"
               class="goal-card"
               @click="selectGoal(goal)"
@@ -55,30 +51,13 @@
                 </span>
               </h3>
               <p class="d-body--sm d-fc-secondary">{{ goal.description }}</p>
-              <p class="d-body--xs d-fc-tertiary industry-examples d-mt8">
-                Used by: {{ goal.industries }}
-              </p>
             </div>
           </div>
         </div>
 
         <!-- Help Content -->
-        <div class="help-section d-mt48">
-          <h3 class="d-headline--sm d-fc-primary">New to AI Agents?</h3>
-          <div class="help-cards">
-            <div class="help-card">
-              <h4 class="d-body--md-bold d-fc-primary">Video demo</h4>
-              <p class="d-body--sm d-fc-secondary d-mt4">See AI Agents in action</p>
-            </div>
-            <div class="help-card">
-              <h4 class="d-body--md-bold d-fc-primary">Case study</h4>
-              <p class="d-body--sm d-fc-secondary d-mt4">Learn from examples</p>
-            </div>
-            <div class="help-card">
-              <h4 class="d-body--md-bold d-fc-primary">Video guide</h4>
-              <p class="d-body--sm d-fc-secondary d-mt4">Step-by-step tutorial</p>
-            </div>
-          </div>
+        <div class="help-section d-mt48" style="text-align: center;">
+          <a href="#" class="d-link" style="font-size: var(--dt-font-size-200);">Learn more about AI Agents →</a>
         </div>
       </div>
     </div>
@@ -97,15 +76,13 @@ const suggestedGoals = ref([
   {
     id: 1,
     title: 'Patient Support Agent',
-    description: 'Answers common questions about hours, insurance, and doctors. Escalates complex issues to a human agent.',
-    industries: 'Healthcare, Telehealth, Medical groups',
+    description: 'Answers common questions about hours, insurance, and doctors.',
     showBadge: false
   },
   {
     id: 2,
     title: 'Appointment Scheduler',
-    description: 'Books, reschedules, and cancels patient visits using Google Calendar or EMR tools. Sends reminders automatically.',
-    industries: 'Healthcare, Salons, Professional services',
+    description: 'Books, reschedules, and cancels patient visits using Google Calendar or EMR tools.',
     showBadge: true,
     badgeText: 'Popular',
     badgeKind: 'success'
@@ -113,29 +90,25 @@ const suggestedGoals = ref([
   {
     id: 3,
     title: 'Prescription Refill Coordinator',
-    description: 'Handles refill requests, verifies eligibility, and forwards approvals to providers.',
-    industries: 'Pharmacies, Healthcare systems',
+    description: 'Handles refill requests and forwards approvals to providers.',
     showBadge: false
   },
   {
     id: 4,
     title: 'Billing & Claims Helper',
-    description: 'Explains charges, checks insurance coverage, and guides patients through claims or payments.',
-    industries: 'Healthcare, Insurance, Finance',
+    description: 'Explains charges, checks insurance coverage, and guides patients through claims.',
     showBadge: false
   },
   {
     id: 5,
     title: 'Pre-Visit Intake Assistant',
-    description: 'Collects patient info and forms before appointments to save time and ensure readiness.',
-    industries: 'Healthcare, Legal, Consulting',
+    description: 'Collects patient info and forms before appointments.',
     showBadge: false
   },
   {
     id: 6,
     title: 'Follow-Up & Reminder Bot',
-    description: 'Sends visit reminders, surveys, and medication alerts to keep patients engaged and on track.',
-    industries: 'Healthcare, Education, Fitness',
+    description: 'Sends visit reminders, surveys, and medication alerts to keep patients engaged.',
     showBadge: false
   }
 ])
@@ -256,19 +229,18 @@ function selectGoal(goal) {
 
 .goals-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--dt-space-500);
 }
 
 .goal-card {
-  padding: var(--dt-space-550);
+  padding: var(--dt-space-500);
   border: 1px solid var(--dt-color-border-subtle);
   border-radius: var(--dt-size-radius-400);
   background: var(--dt-color-surface-primary);
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: left;
-  min-height: 180px;
   display: flex;
   flex-direction: column;
 }
@@ -278,73 +250,13 @@ function selectGoal(goal) {
   box-shadow: var(--dt-shadow-200);
 }
 
-.goal-badge {
-  margin-bottom: var(--dt-space-450);
-}
-
-.industry-examples {
-  font-size: var(--dt-font-size-100);
-  color: var(--dt-color-foreground-tertiary);
-  line-height: 1.4;
-  font-style: italic;
-}
-
 .help-section {
-  max-width: 1100px;
+  max-width: 700px;
   margin: 0 auto;
-  text-align: center;
-}
-
-.help-section h3 {
-  margin-bottom: var(--dt-space-450);
-}
-
-.help-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--dt-space-500);
-}
-
-.help-card {
-  padding: var(--dt-space-650) var(--dt-space-550);
-  border: 1px solid var(--dt-color-border-default);
-  border-radius: var(--dt-size-radius-400);
-  background: var(--dt-color-surface-moderate);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: center;
-  min-height: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.help-card:hover {
-  background: var(--dt-color-surface-strong);
-}
-
-.help-card h4 {
-  margin-bottom: var(--dt-space-300);
-}
-
-.help-card p {
-  font-size: var(--dt-font-size-100);
-  color: var(--dt-color-foreground-tertiary);
-}
-
-@media (max-width: 1024px) {
-  .goals-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
 @media (max-width: 768px) {
   .goals-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .help-cards {
     grid-template-columns: 1fr;
   }
 
