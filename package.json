@@ -1,0 +1,30 @@
+{
+  "name": "daart-onboarding-v3",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "DAART V3 - Conversational Agent Builder with Dialtone Design System",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "daart",
+    "ai-agents",
+    "dialtone",
+    "prototype"
+  ],
+  "author": "Amit Ayre",
+  "license": "ISC",
+  "dependencies": {
+    "@dialpad/dialtone": "^9.147.0",
+    "@dialpad/dialtone-icons": "^4.45.0",
+    "pinia": "^2.3.1",
+    "vue": "^3.5.24",
+    "vue-router": "^4.6.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.4",
+    "vite": "^5.4.21"
+  }
+}

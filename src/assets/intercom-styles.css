@@ -1,0 +1,357 @@
+/* Intercom-Style Shared Component Styles */
+/* Use these classes across all views for consistent Intercom look & feel */
+
+/* Layout */
+.intercom-page {
+  padding: var(--dt-space-700);
+  max-width: 1400px;
+  margin: 0 auto;
+  background: #f9f9f9;
+}
+
+.intercom-page-header {
+  margin-bottom: var(--dt-space-600);
+}
+
+.intercom-page-title {
+  font-size: 32px;
+  font-weight: var(--dt-font-weight-bold);
+  color: var(--dt-color-foreground-primary);
+  margin: 0 0 var(--dt-space-300);
+  line-height: 1.2;
+}
+
+.intercom-page-description {
+  font-size: var(--dt-font-size-300);
+  color: var(--dt-color-foreground-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Cards */
+.intercom-card {
+  background: white;
+  border-radius: 12px;
+  padding: var(--dt-space-550);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s ease;
+}
+
+.intercom-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.intercom-card-title {
+  font-size: var(--dt-font-size-400);
+  font-weight: var(--dt-font-weight-bold);
+  color: var(--dt-color-foreground-primary);
+  margin: 0 0 var(--dt-space-300);
+}
+
+.intercom-card-description {
+  font-size: var(--dt-font-size-200);
+  color: var(--dt-color-foreground-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Option Cards (like tone of voice cards) */
+.intercom-option-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--dt-space-400);
+  margin: var(--dt-space-500) 0;
+}
+
+.intercom-option-card {
+  background: white;
+  border: 2px solid var(--dt-color-border-subtle);
+  border-radius: 12px;
+  padding: var(--dt-space-500);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.intercom-option-card:hover {
+  border-color: var(--dt-color-purple-300);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.intercom-option-card.selected {
+  border-color: var(--dt-color-purple-400);
+  background: var(--dt-color-purple-50);
+}
+
+.intercom-option-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto var(--dt-space-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dt-color-surface-secondary);
+  border-radius: var(--dt-size-radius-400);
+  font-size: 24px;
+}
+
+.intercom-option-card.selected .intercom-option-icon {
+  background: var(--dt-color-purple-100);
+}
+
+.intercom-option-title {
+  font-size: var(--dt-font-size-300);
+  font-weight: var(--dt-font-weight-bold);
+  color: var(--dt-color-foreground-primary);
+  margin: 0 0 var(--dt-space-200);
+}
+
+.intercom-option-description {
+  font-size: var(--dt-font-size-100);
+  color: var(--dt-color-foreground-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Buttons */
+.intercom-button {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: var(--dt-font-size-200);
+  font-weight: var(--dt-font-weight-medium);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--dt-space-300);
+}
+
+.intercom-button-primary {
+  background: var(--dt-color-purple-400);
+  color: white;
+}
+
+.intercom-button-primary:hover {
+  background: var(--dt-color-purple-500);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+}
+
+.intercom-button-secondary {
+  background: white;
+  color: var(--dt-color-foreground-primary);
+  border: 2px solid var(--dt-color-border-default);
+}
+
+.intercom-button-secondary:hover {
+  border-color: var(--dt-color-purple-400);
+  color: var(--dt-color-purple-400);
+}
+
+.intercom-button-ghost {
+  background: transparent;
+  color: var(--dt-color-foreground-secondary);
+}
+
+.intercom-button-ghost:hover {
+  background: var(--dt-color-surface-secondary);
+  color: var(--dt-color-foreground-primary);
+}
+
+.intercom-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Section Headers */
+.intercom-section {
+  margin: var(--dt-space-600) 0;
+}
+
+.intercom-section-title {
+  font-size: var(--dt-font-size-300);
+  font-weight: var(--dt-font-weight-medium);
+  color: var(--dt-color-foreground-primary);
+  margin: 0 0 var(--dt-space-300);
+}
+
+.intercom-section-description {
+  font-size: var(--dt-font-size-200);
+  color: var(--dt-color-foreground-secondary);
+  margin: 0 0 var(--dt-space-500);
+  line-height: 1.5;
+}
+
+/* Input Fields */
+.intercom-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--dt-color-border-default);
+  border-radius: 8px;
+  font-size: var(--dt-font-size-200);
+  color: var(--dt-color-foreground-primary);
+  background: white;
+  transition: all 0.2s ease;
+}
+
+.intercom-input:hover {
+  border-color: var(--dt-color-border-hover);
+}
+
+.intercom-input:focus {
+  outline: none;
+  border-color: var(--dt-color-purple-400);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+}
+
+.intercom-textarea {
+  min-height: 120px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+/* Labels */
+.intercom-label {
+  display: block;
+  font-size: var(--dt-font-size-200);
+  font-weight: var(--dt-font-weight-medium);
+  color: var(--dt-color-foreground-primary);
+  margin-bottom: var(--dt-space-300);
+}
+
+.intercom-label-optional {
+  color: var(--dt-color-foreground-secondary);
+  font-weight: var(--dt-font-weight-regular);
+}
+
+/* Badges */
+.intercom-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: var(--dt-font-size-100);
+  font-weight: var(--dt-font-weight-medium);
+}
+
+.intercom-badge-success {
+  background: var(--dt-color-green-100);
+  color: var(--dt-color-green-600);
+}
+
+.intercom-badge-warning {
+  background: var(--dt-color-gold-100);
+  color: var(--dt-color-gold-600);
+}
+
+.intercom-badge-info {
+  background: var(--dt-color-blue-100);
+  color: var(--dt-color-blue-600);
+}
+
+.intercom-badge-neutral {
+  background: var(--dt-color-surface-secondary);
+  color: var(--dt-color-foreground-secondary);
+}
+
+/* Dividers */
+.intercom-divider {
+  height: 1px;
+  background: var(--dt-color-border-subtle);
+  margin: var(--dt-space-600) 0;
+}
+
+/* Split Layout (content + preview) */
+.intercom-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: var(--dt-space-600);
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .intercom-split-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Preview Panel */
+.intercom-preview-panel {
+  position: sticky;
+  top: var(--dt-space-500);
+  background: white;
+  border-radius: 12px;
+  padding: var(--dt-space-550);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.intercom-preview-title {
+  font-size: var(--dt-font-size-300);
+  font-weight: var(--dt-font-weight-bold);
+  color: var(--dt-color-foreground-primary);
+  margin: 0 0 var(--dt-space-400);
+}
+
+/* Empty State */
+.intercom-empty-state {
+  text-align: center;
+  padding: var(--dt-space-700) var(--dt-space-500);
+}
+
+.intercom-empty-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--dt-space-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--dt-color-surface-secondary);
+  border-radius: 50%;
+  font-size: 32px;
+  color: var(--dt-color-foreground-tertiary);
+}
+
+.intercom-empty-title {
+  font-size: var(--dt-font-size-400);
+  font-weight: var(--dt-font-weight-bold);
+  color: var(--dt-color-foreground-primary);
+  margin: 0 0 var(--dt-space-300);
+}
+
+.intercom-empty-description {
+  font-size: var(--dt-font-size-200);
+  color: var(--dt-color-foreground-secondary);
+  margin: 0 0 var(--dt-space-500);
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* List Items */
+.intercom-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.intercom-list-item {
+  background: white;
+  border: 1px solid var(--dt-color-border-subtle);
+  border-radius: 8px;
+  padding: var(--dt-space-450);
+  margin-bottom: var(--dt-space-300);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.intercom-list-item:hover {
+  border-color: var(--dt-color-border-default);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.intercom-list-item:last-child {
+  margin-bottom: 0;
+}
