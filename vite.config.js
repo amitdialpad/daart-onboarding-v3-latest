@@ -4,6 +4,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 export default defineConfig({
   plugins: [vue()],
+  base: '/daart-onboarding-v3/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))

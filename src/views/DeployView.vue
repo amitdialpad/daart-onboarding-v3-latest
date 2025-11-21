@@ -197,7 +197,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAgentStore } from '../stores/agent'
 
@@ -218,6 +218,17 @@ const config = ref({
 })
 
 const deployedAt = ref(null)
+
+// Initialize from agent store on mount
+onMounted(() => {
+  if (agentStore.deployment.channel) {
+    // Agent is deployed, load the deployment info
+    selectedChannel.value = agentStore.deployment.channel
+    deployedAt.value = agentStore.deployment.deployedAt
+    config.value = { ...agentStore.deployment.config }
+    deploymentStatus.value = 'live'
+  }
+})
 
 const channels = [
   {
@@ -295,13 +306,12 @@ const copyCode = () => {
 }
 
 const confirmDeploy = () => {
-  deploymentStatus.value = 'live'
-  deployedAt.value = new Date().toLocaleString()
+  // Deploy agent in store (persists deployment info)
+  agentStore.deployAgent(selectedChannel.value, config.value)
 
-  // Mark onboarding as complete (in case user skipped builder flow)
-  agentStore.completeOnboarding()
-  // Update agent status to deployed
-  agentStore.updateStatus('deployed')
+  // Update local state
+  deploymentStatus.value = 'live'
+  deployedAt.value = agentStore.deployment.deployedAt
 
   // Celebrate!
   setTimeout(() => {
@@ -315,10 +325,13 @@ const handleUpdate = () => {
 
 const handleUnpublish = () => {
   if (confirm('Are you sure you want to unpublish your agent? It will stop handling conversations immediately.')) {
+    // Unpublish in store
+    agentStore.unpublishAgent()
+
+    // Update local state
     deploymentStatus.value = 'draft'
     deployedAt.value = null
-    // Update agent status back to ready (built but not deployed)
-    agentStore.updateStatus('ready')
+    selectedChannel.value = null
   }
 }
 </script>

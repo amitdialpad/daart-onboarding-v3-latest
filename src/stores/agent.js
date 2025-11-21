@@ -46,6 +46,18 @@ export const useAgentStore = defineStore('agent', {
       demoLink: '',
     },
 
+    // Deployment
+    deployment: {
+      channel: null, // 'chat' | 'email' | 'phone' | 'slack'
+      deployedAt: null,
+      config: {
+        greetingMessage: "Hi! I'm your AI assistant. How can I help you today?",
+        workingHours: '24/7',
+        fallbackBehavior: 'escalate',
+        escalationThreshold: '2'
+      }
+    },
+
     // Metadata
     createdAt: null,
     lastModified: null,
@@ -176,6 +188,30 @@ export const useAgentStore = defineStore('agent', {
     // Complete onboarding
     completeOnboarding() {
       this.hasCompletedOnboarding = true
+      this.lastModified = new Date()
+    },
+
+    // Deploy agent
+    deployAgent(channel, config) {
+      this.deployment.channel = channel
+      this.deployment.deployedAt = new Date().toLocaleString()
+      this.deployment.config = { ...config }
+      this.status = 'deployed'
+      this.hasCompletedOnboarding = true
+      this.lastModified = new Date()
+    },
+
+    // Update deployment config
+    updateDeploymentConfig(config) {
+      this.deployment.config = { ...this.deployment.config, ...config }
+      this.lastModified = new Date()
+    },
+
+    // Unpublish agent
+    unpublishAgent() {
+      this.deployment.channel = null
+      this.deployment.deployedAt = null
+      this.status = 'ready'
       this.lastModified = new Date()
     },
 
