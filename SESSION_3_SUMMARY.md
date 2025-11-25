@@ -3,6 +3,19 @@
 **Date**: Session 3 of DAART Onboarding V3 Development
 **Focus**: Implementing Michele's feedback about multi-skill agent architecture
 
+## 🔗 Quick Reference Links
+
+**Live Demo**: https://amitdialpad.github.io/daart-onboarding-v3-latest/
+
+**GitHub Repository**: https://github.com/amitdialpad/daart-onboarding-v3-latest
+
+**Main Branch**: `main`
+
+**Key Commits**:
+- `a8c9853` - Implement multi-skill agent flow based on Michele's feedback
+- `2260000` - Add Session 3 documentation
+- `145873c` - Fix base URL for new GitHub Pages deployment
+
 ---
 
 ## Session Goals
@@ -484,3 +497,57 @@ Key changes:
 This addresses Michele's feedback that the flow felt like building separate
 single-skill agents rather than one agent with multiple skills.
 ```
+
+---
+
+## 🚀 Deployment & Repository
+
+### New Repository Created
+Due to cache issues with the original deployment, created a fresh repository:
+
+**Old Repository**: https://github.com/amitdialpad/daart-onboarding-v3
+**Old URL**: https://amitdialpad.github.io/daart-onboarding-v3/ (deprecated)
+
+**New Repository**: https://github.com/amitdialpad/daart-onboarding-v3-latest
+**New URL**: https://amitdialpad.github.io/daart-onboarding-v3-latest/ ✅
+
+### Deployment Fix
+**Issue**: Vite base path was set to `/daart-onboarding-v3/` (old repo name)
+**Fix**: Updated `vite.config.js` line 7 to `/daart-onboarding-v3-latest/`
+**Commit**: `145873c` - "Fix base URL for new GitHub Pages deployment"
+
+### Final Deployment Status
+- ✅ Built successfully with correct asset paths
+- ✅ Deployed to GitHub Pages via `gh-pages` branch
+- ✅ Assets loading with HTTP 200 status
+- ✅ Live at: https://amitdialpad.github.io/daart-onboarding-v3-latest/
+
+### Git Remotes
+```bash
+origin    https://github.com/amitdialpad/daart-onboarding-v3.git
+upstream  https://github.com/amitdialpad/daart-onboarding-v3-latest.git (ACTIVE)
+```
+
+### Access Command
+For future sessions, use `/daart` to load complete project context including:
+- All links and references
+- Architecture overview
+- Code locations with line numbers
+- Design principles and learnings
+- Deployment information
+- Next steps
+
+---
+
+## 📋 Session 3 Complete
+
+**Status**: ✅ All changes committed, deployed, and documented
+
+**Next Steps**: Await EPD (Engineering, Product, Design) feedback on multi-skill flow
+
+**Documentation Files**:
+- ✅ SESSION_3_SUMMARY.md (this file)
+- ✅ `.claude/commands/daart.md` (complete context for `/daart` command)
+- ✅ SESSION_2_SUMMARY.md (previous session)
+- ✅ DESIGN_PRINCIPLES.md
+- ✅ HOMEPAGE_ANALYSIS.md
