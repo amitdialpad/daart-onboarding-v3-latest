@@ -21,7 +21,6 @@ V3 introduces a conversational-first approach to building AI agents, replacing t
 ## Design Constraints
 
 **IMPORTANT:**
-- **NO EMOJIS** - Do not use emojis anywhere in the project
 - **Lo-Fi Approach** - Keep design minimal until Dialtone MCP is available
 - **Dialtone CSS Only** - Using plain CSS classes (no Vue components due to compatibility)
 - Focus on functionality first, polish later
@@ -110,7 +109,7 @@ src/
 
 **Current Phase:** Bug Fixes & Polish | Ready for EPD Team Review ✅
 
-### Latest Updates (November 21, 2025):
+### Latest Updates (November 25, 2025):
 
 **Session 2: Deployment State Persistence Fix**
 - [x] **Deployment Persistence Issue Fixed**
@@ -142,7 +141,7 @@ src/
   - "Apply All Improvements" button working
 
 - [x] **Naming Consistency**
-  - "Skill" renamed to "Task" throughout
+  - "Skill" renamed to "Task" throughout - This needs to changed back to Skills as per the update from Jean on 24th Nov. 
   - "Visual Workflow Builder" renamed to "Agent Studio"
   - "Visual Studio sneak peak" corrected to "Agent Studio sneak peek"
 
@@ -158,13 +157,11 @@ src/
 - [x] Persistent Left Navigation Sidebar
 - [x] Post-Onboarding Navigation Flow
 - [x] Complete Views Implementation (7 views)
-- [x] NO EMOJIS Compliance
-- [x] Monitor charts placeholder (fixing broken visuals)
 - [x] Agent status state management
 - [x] Conditional navigation based on deployment
 
 ### Known Issues:
-- None currently - ready for EPD team review
+- None currently - ready for design team review
 
 **See PROGRESS.md for detailed session notes and technical decisions.**
 
@@ -192,8 +189,6 @@ This enables Claude to query:
 
 ### Important: CSS Import Setup
 
-**You MUST import both base CSS and theme CSS for Dialtone to work:**
-
 ```javascript
 // src/main.js
 import '@dialpad/dialtone/css'              // Base styles
@@ -202,21 +197,6 @@ import '@dialpad/dialtone/css-default-theme' // Theme tokens (REQUIRED!)
 
 The theme CSS provides all the CSS custom property values (`--dt-color-*`, `--dt-space-*`, etc.) that make the design system work.
 
-## Agent Lifecycle Flow
-
-1. **Starting Point** - User enters their agent goal
-2. **Builder** - Conversational interface guides through 6 phases:
-   - Phase 1: Agent Foundation & Tasks
-   - Phase 2: Connections (Calendar, Video, CRM)
-   - Phase 3: Safety & Guardrails
-   - Phase 4: Validation & Refine
-   - Phase 5: Additional Tasks (optional)
-   - Phase 6: Test & Launch
-3. **Ready State** - Navigation links unlock (Test, Deploy, Agent Studio, Knowledge)
-4. **Testing** - Test agent in simulated environment
-5. **Deployment** - Deploy to channels (Chat Widget, Email, Phone, Slack)
-6. **Monitoring** - View performance metrics and conversations
-7. **Agent Studio** - Advanced workflow editing (placeholder)
 
 ## Documentation
 
@@ -265,11 +245,12 @@ Complete context is available in the `.windsurf/` directory:
 
 ## Notes
 
-This is a high-fidelity prototype for UX validation. Focus is on visual design and user flow rather than production-ready code.
+This is a low-fidelity prototype for UX validation. Focus is on user flow rather than production-ready code.
 
 ---
 
-**Last Updated:** November 21, 2025 (Bug Fixes Complete, Ready for EPD Review)
+**Last Updated:** November 25, 2025 (Bug Fixes Complete, Ready for EPD Review)
 **Developer:** Amit Ayre
-**Designer:** Sofia
-**MCP Support:** Nina Repetto (Dialtone MCP setup)
+**Designer:** Sofia A
+**MCP Support:** Nina R, Belu M (Dialtone MCP setup)
+**Feedback by :** Ted, Michelle
