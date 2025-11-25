@@ -87,7 +87,11 @@ const shouldShowMessageInput = computed(() => {
   return state === 'pro_asking_missing' ||
          state === 'beginner_phase_1' ||
          state === 'pro_configuring_form_collector' ||
-         state === 'pro_configuring_billing'
+         state === 'pro_configuring_billing' ||
+         state === 'pro_configuring_question_answering' ||
+         state === 'pro_configuring_prescription_refills' ||
+         state === 'pro_configuring_reminders' ||
+         state === 'pro_configuring_custom'
 })
 
 // Helper function to scroll to bottom
@@ -241,6 +245,14 @@ const processUserInput = (input) => {
     } else if (state === 'pro_configuring_billing') {
       // Handle billing helper configuration
       handleBillingHelperConfig(input)
+    } else if (state === 'pro_configuring_question_answering') {
+      handleSkillConfig(input, 'question_answering')
+    } else if (state === 'pro_configuring_prescription_refills') {
+      handleSkillConfig(input, 'prescription_refills')
+    } else if (state === 'pro_configuring_reminders') {
+      handleSkillConfig(input, 'reminders')
+    } else if (state === 'pro_configuring_custom') {
+      handleSkillConfig(input, 'custom')
     } else if (state === 'beginner_phase_2') {
       // Handle Phase 2 - Connections
       handleBeginnerPhase2(input)
@@ -1089,6 +1101,25 @@ const askSkillConfigQuestions = () => {
   } else if (skill.type === 'billing_helper') {
     conversationStore.addAIMessage("What billing questions should your agent handle?")
     conversationStore.currentState = 'pro_configuring_billing'
+  } else if (skill.type === 'question_answering') {
+    conversationStore.addAIMessage("What types of questions should your agent be able to answer?")
+    conversationStore.currentState = 'pro_configuring_question_answering'
+  } else if (skill.type === 'prescription_refills') {
+    conversationStore.addAIMessage("How should your agent handle prescription refill requests?")
+    conversationStore.currentState = 'pro_configuring_prescription_refills'
+  } else if (skill.type === 'reminders') {
+    conversationStore.addAIMessage("What types of reminders should your agent send?")
+    conversationStore.currentState = 'pro_configuring_reminders'
+  } else if (skill.type === 'custom') {
+    conversationStore.addAIMessage("Please describe the custom skill you'd like your agent to have:")
+    conversationStore.currentState = 'pro_configuring_custom'
+  } else {
+    // Unknown skill type, skip configuration
+    conversationStore.addAIMessage(`Got it! I'll configure ${skill.type} with smart defaults.`)
+    setTimeout(() => {
+      conversationStore.currentlyConfiguringSkill++
+      askSkillConfigQuestions()
+    }, 800)
   }
 }
 
@@ -1126,6 +1157,26 @@ const handleBillingHelperConfig = (input) => {
   }
 
   conversationStore.addAIMessage(`Perfect! Your agent will handle: ${input}`)
+
+  // Move to next skill or next phase
+  setTimeout(() => {
+    conversationStore.currentlyConfiguringSkill++
+    askSkillConfigQuestions()
+  }, 800)
+}
+
+// Generic handler for other skill configurations
+const handleSkillConfig = (input, skillType) => {
+  const skillIndex = conversationStore.currentlyConfiguringSkill
+  const skill = agentStore.skills[skillIndex]
+
+  if (skill) {
+    agentStore.updateSkillConfig(skill.id, {
+      config: input
+    })
+  }
+
+  conversationStore.addAIMessage(`Got it! Your agent will ${skillType === 'custom' ? 'handle that' : `handle ${skillType.replace(/_/g, ' ')}`}.`)
 
   // Move to next skill or next phase
   setTimeout(() => {
