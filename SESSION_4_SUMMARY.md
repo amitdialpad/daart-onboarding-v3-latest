@@ -245,6 +245,52 @@ PRO_PHASE_2 (Step 2: Enable Connections)
 
 **Live URL**: https://amitdialpad.github.io/daart-onboarding-v3-latest/
 
+### Deployment Process (IMPORTANT FOR FUTURE REFERENCE)
+
+**⚠️ Critical Note**: `npx gh-pages -d dist` doesn't reliably push to remote. Always use manual deployment method.
+
+**Correct Deployment Steps**:
+```bash
+# 1. Build production assets
+npm run build
+
+# 2. Commit source changes
+git add -A
+git commit -m "Your commit message"
+git push upstream main
+
+# 3. Manual gh-pages deployment (REQUIRED)
+git checkout -b temp-gh-pages upstream/gh-pages
+cp -r dist/* .
+git add -A
+git commit -m "Deploy: Your deployment message"
+git push upstream temp-gh-pages:gh-pages
+git checkout main
+git branch -D temp-gh-pages
+```
+
+**Why Manual Deployment?**
+- `npx gh-pages` has caching issues and doesn't consistently push to remote
+- Manual method ensures files are actually deployed to GitHub Pages
+- Always verify deployment by checking `git log upstream/gh-pages -1`
+
+### Common Issues & Solutions
+
+**Issue 1: Vite Cache Errors After Package Installation**
+```bash
+# Clear all caches
+rm -rf node_modules/.vite .vite
+
+# Kill and restart dev server
+# (kill existing process first)
+npm run dev
+```
+
+**Issue 2: Changes Not Appearing on GitHub Pages**
+- Problem: `npx gh-pages` says "Published" but nothing updates
+- Solution: Use manual deployment method above
+- Verify: `git fetch upstream gh-pages && git log upstream/gh-pages -1 --format="%H %ai %s"`
+
 ## 🎬 Next Steps
 
 **Status**: All requested fixes complete. Awaiting:
