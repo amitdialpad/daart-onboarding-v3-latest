@@ -4,7 +4,7 @@ A Vue 3 prototype for conversational AI agent building using the Dialtone design
 
 ## Live Demo
 
-🌐 **[View Live Demo](https://amitayre.github.io/daart-onboarding-v3/)**
+🌐 **[View Live Demo](https://amitdialpad.github.io/daart-onboarding-v3-latest/)**
 
 ## Overview
 
