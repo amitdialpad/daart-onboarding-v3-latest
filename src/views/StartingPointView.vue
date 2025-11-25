@@ -22,8 +22,7 @@
           <div class="prompt-section">
             <div :class="{ 'blur-background': isFocused }">
               <h2 class="d-headline--sm d-fc-primary prompt-title">Build an AI Agent</h2>
-              <p class="prompt-subtitle">Turn hours of routine support work into automated conversations</p>
-              <p class="prompt-value-prop">Your team spends hours on repetitive tasks like scheduling, answering common questions, and collecting information. Let AI handle it while you focus on what matters most.</p>
+              <p class="prompt-value-prop">Your team is swamped with repetitive questions. Let AI handle them.</p>
             </div>
 
             <div class="prompt-card">
