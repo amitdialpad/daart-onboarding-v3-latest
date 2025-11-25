@@ -273,4 +273,7 @@ export const useAgentStore = defineStore('agent', {
       this.$reset()
     },
   },
+
+  // Enable persistence to localStorage
+  persist: true,
 })
